@@ -33,6 +33,6 @@ config/application.yml
 /.github
 /.kamal
 
-
+.idea/inspectionProfiles/
 # Ignore master key for decrypting credentials and more.
 /config/master.key

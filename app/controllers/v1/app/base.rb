@@ -7,7 +7,7 @@ module V1::App
     include Grape::Kaminari
 
     # All mount
-    mount V1::App::Users
+    mount App::Users
 
   end
 end
