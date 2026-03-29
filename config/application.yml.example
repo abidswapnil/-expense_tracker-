@@ -1,0 +1,9 @@
+# frozen_string_literal: true
+development:
+  DB_NAME: 'expense_tracker_development'
+  DB_USER_NAME: 'username'
+  DB_USER_PASSWORD: 'password'
+
+test:
+  DB_USER_NAME: 'username'
+  DB_USER_PASSWORD: 'password'
