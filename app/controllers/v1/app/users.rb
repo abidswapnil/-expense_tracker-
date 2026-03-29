@@ -1,8 +1,9 @@
 module V1::App
-  class Users < App::Base
+  class Users < V1::App::Base
+    include QueryParams
     resources do
-      get do
-        "test API"
+      get :signup do
+        "sign up"
       end
     end
   end
