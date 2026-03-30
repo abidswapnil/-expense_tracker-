@@ -1,24 +1,59 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 💰 Expense Tracker API
 
-Things you may want to cover:
+A simple and scalable Expense Tracker API built with Ruby on Rails (API mode) to manage users, expenses, and financial data efficiently.
 
-* Ruby version
+---
 
-* System dependencies
+## 🚀 Features
 
-* Configuration
+- Token-based authentication
+- Multiple user types support (authable model)
+- Track income & expenses
+- Categorize transactions
+- Date-based filtering
+- Configurable settings
+- API built using Grape
 
-* Database creation
+---
 
-* Database initialization
+## 🏗️ Tech Stack
 
-* How to run the test suite
+- Ruby on Rails (API only)
+- Grape
+- PostgreSQL
+- BCrypt
+- Figaro
 
-* Services (job queues, cache servers, search engines, etc.)
+---
 
-* Deployment instructions
+## 🔑 Authentication
 
-* ...
+Token-based authentication.
+
+Include token in headers:
+
+Authorization: Bearer <token>
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1. Clone repository
+
+git clone <your_repo_url>
+cd expense_tracker
+
+### 2. Install dependencies
+
+bundle install
+
+### 3. Setup environment variables
+
+bundle exec figaro install
+
+---
+
+
+

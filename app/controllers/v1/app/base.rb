@@ -6,8 +6,13 @@ module V1::App
 
     include Grape::Kaminari
 
+    def set_user_agent
+      @request_user_agent = request.headers.fetch("User-Agent")
+    end
+
+
     # All mount
-    mount App::Users
+    mount V1::App::Users
 
   end
 end
