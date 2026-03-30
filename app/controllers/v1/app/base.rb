@@ -6,11 +6,10 @@ module V1::App
 
     include Grape::Kaminari
 
-    # require "bcrypt"
-    #
-    # def generate_password_hash(password)
-    #   BCrypt::Password.create(password)
-    # end
+    def set_user_agent
+      @request_user_agent = request.headers.fetch("User-Agent")
+    end
+
 
     # All mount
     mount V1::App::Users

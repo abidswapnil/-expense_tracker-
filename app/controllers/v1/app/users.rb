@@ -6,11 +6,20 @@ module V1::App
         use :user_signup_params
       end
       post :signup do
-        # password_hash = generate_password_hash(params[:password])
-        user = User.create(params)
-        V1::App::Entities::Users.represent(user)
+        user = User.find_or_initialize_by(contact: params[:contact])
+        if user.persisted?
+          error!("User already exists!", :conflict)
+        end
+        user.assign_attributes(params)
+        if user.save!
+          {
+            message: "Sign up successful!",
+            user: V1::App::Entities::Users.represent(user),
+            auth_token: AuthToken.generate_access_token(user, @request_user_agent)
+          }
+        end
       rescue StandardError => e
-        error!(e.message, 400)
+        error!(e.message, :bad_request)
       end
     end
   end
