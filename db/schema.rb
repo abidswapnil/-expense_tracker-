@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_03_29_162127) do
+ActiveRecord::Schema[8.0].define(version: 2026_03_30_015201) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "authorization_keys", force: :cascade do |t|
+    t.datetime "expiry"
+    t.string "token"
+    t.string "user_agent"
+    t.string "authable_type"
+    t.bigint "authable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"

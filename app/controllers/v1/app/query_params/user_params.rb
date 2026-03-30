@@ -7,8 +7,8 @@ module V1::App::QueryParams
       requires :name, type: String, desc: "User name"
       requires :email, type: String, desc: "User email"
       requires :contact, type: String, desc: "User contact"
-      requires :password, type: String, desc: "User password"
-      requires :confirm_password, type: String, desc: "User confirm password"
+      optional :password, type: String, desc: "User password"
+      optional :password_confirmation, type: String, desc: "User confirm password"
     end
   end
 end
