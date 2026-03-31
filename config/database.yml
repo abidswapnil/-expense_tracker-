@@ -40,8 +40,12 @@ test:
   password: <%= ENV["DB_USER_PASSWORD"] %>
 
 production:
-  <<: *default
-  database: <%= ENV["DB_NAME"] %>
+  primary:
+    <<: *default
+    schema_search_path: public  # main app schema
+  queue:
+    <<: *default
+    schema_search_path: queue   # use your existing queue schema
 #  database: <%#= ENV["DB_NAME"] %>
 #  username: <%#= ENV["DB_USER_NAME"] %>
 #  password: <%#= ENV["DB_USER_PASSWORD"] %>
