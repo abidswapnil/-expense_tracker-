@@ -81,9 +81,9 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: expense_tracker_production
-    username: expense_tracker
-    password: <%= ENV["EXPENSE_TRACKER_DATABASE_PASSWORD"] %>
+    database: <%= ENV["DATABASE_URL"] %>
+    username: <%= ENV["DB_USER_NAME"] %>
+    password: <%= ENV["DB_USER_PASSWORD"] %>
   cache:
     <<: *primary_production
     database: expense_tracker_production_cache
