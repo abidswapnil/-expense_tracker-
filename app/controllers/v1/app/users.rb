@@ -16,7 +16,7 @@ module V1::App
           {
             message: "Sign up successful!",
             user: V1::App::Entities::Users.represent(user),
-            auth_token: AuthToken.generate_access_token(user, @request_user_agent)
+            # auth_token: AuthToken.generate_access_token(user, @request_user_agent)
           }
         end
       rescue StandardError => e
@@ -37,6 +37,16 @@ module V1::App
         if user.persisted?
           AuthToken.generate_access_token(user, @request_user_agent)
         end
+      rescue StandardError => e
+        error!(e.message, :bad_request)
+      end
+
+      desc "Get user profile"
+
+      get :profile do
+        {
+          token: @bearer_token
+        }
       rescue StandardError => e
         error!(e.message, :bad_request)
       end

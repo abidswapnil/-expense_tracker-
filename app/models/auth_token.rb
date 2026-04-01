@@ -1,5 +1,5 @@
 class AuthToken < ApplicationRecord
-  def self.generate_access_token(user, user_agent=nil)
+  def self.generate_access_token(user, user_agent = nil)
     expiry = 1.month.from_now
     rand  = SecureRandom.hex(10)
     token = BCrypt::Password.create(rand)

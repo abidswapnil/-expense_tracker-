@@ -11,6 +11,16 @@ module V1::App
     end
 
 
+
+    def authenticate!
+
+    end
+
+    def bearer_token
+      @bearer_token = request
+    end
+
+
     # All mount
     mount V1::App::Users
 
