@@ -14,6 +14,4 @@ module AuthValidation
     @password = Password.create(new_password)
     self.password_hash = @password
   end
-
-
 end
